@@ -1,0 +1,34 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-DemoProjApplication<demo>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.melaku.demo.DemoProjApplication",
+      "projectName": "demo",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-RestServiceApplication<rest-service-complete>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.example.restservice.RestServiceApplication",
+      "projectName": "rest-service-complete",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-RestServiceApplication<rest-service-initial>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.example.restservice.RestServiceApplication",
+      "projectName": "rest-service-initial",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
