@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Deporte</title>
+</head>
+<body>
+    <h1>Formulario de Deporte</h1>
+    <form th:object="${deporte}" th:action="@{/deportes/guardar}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" th:field="*{nombre}" required />
+        <button type="submit">Guardar</button>
+    </form>
+    <a th:href="@{/deportes}">Volver a la lista</a>
+</body>
+</html>
