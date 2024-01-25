@@ -8,27 +8,28 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 //especificamos que sera un controlador de una api rest
 @RestController
-//esto para poder hacer los mapeos de rutas
+// esto para poder hacer los mapeos de rutas
 @RequestMapping("CRUDRepo")
 public class Controlador {
 
     @Autowired
     private DSIMPL impl;
 
-    //Metodos de crud que actuan sobre la api
+    // Metodos de crud que actuan sobre la api
     @GetMapping
     @RequestMapping(value = "ConsultarDeportes", method = RequestMethod.GET)
-    public ResponseEntity<?> ConsultarPersonas(){
+    public ResponseEntity<?> ConsultarPersonas() {
         List<Deporte> listaDeportes = this.impl.ListarDeportes();
         return ResponseEntity.ok(listaDeportes);
     }
 
     @PostMapping
     @RequestMapping(value = "InsertarDeporte", method = RequestMethod.POST)
-    public ResponseEntity<?> InsertarDeporte(@RequestBody Deporte d){
+    public ResponseEntity<?> InsertarDeporte(@RequestBody Deporte d) {
         Deporte deporteInsertado = this.impl.insertarDeporte(d);
         return ResponseEntity.status(HttpStatus.CREATED).body(deporteInsertado);
     }
@@ -46,11 +47,33 @@ public class Controlador {
     }
 
     // Ejemplo de método para editar un deporte
-    @PutMapping
-    @RequestMapping(value = "EditarDeporte", method = RequestMethod.PUT)
-    public ResponseEntity<?> EditarDeporte(@RequestBody Deporte d) {
-        Deporte deporteEditado = this.impl.editarDeporte(d);
-        return ResponseEntity.ok(deporteEditado);
+    /*
+     * @PutMapping("/{id}")
+     * 
+     * @RequestMapping(value = "EditarDeporte", method = RequestMethod.PUT)
+     * public ResponseEntity<?> EditarDeporte(@RequestBody Deporte d) {
+     * Deporte deporteEditado = this.impl.editarDeporte(d);
+     * return ResponseEntity.ok(deporteEditado);
+     * }
+     */
+    // En el controlador
+    @PutMapping("ModificarDeporte/{id}")
+    public ResponseEntity<Deporte> modificarDeporte(@PathVariable int id, @RequestBody Map<String, String> body) {
+        try {
+            // Obtener el nombre del cuerpo de la solicitud
+            String nuevoNombre = body.get("nombre");
+
+            // Llamar a editarDeporte en DSIMPL
+            Deporte deporteModificado = impl.editarDeporte(id, nuevoNombre);
+
+            if (deporteModificado != null) {
+                return ResponseEntity.ok(deporteModificado);
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 
     // Ejemplo de método para eliminar un deporte por ID
@@ -62,4 +85,3 @@ public class Controlador {
     }
 
 }
-

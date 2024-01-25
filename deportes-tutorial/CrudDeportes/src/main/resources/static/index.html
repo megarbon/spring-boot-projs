@@ -4,29 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="../js/server.js"></script>
     <title>Interactuar con API Spring</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="server.js"></script>
+
 </head>
 
-<body>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center w-full">
 
-    <h1>Interactuar con API Spring</h1>
+    <h1 class="text-3xl font-semibold mb-8">Interactuar con API Spring</h1>
 
-    <h2>Consultar Deportes</h2>
-    <button onclick="consultarDeportes()">Consultar Deportes</button>
-    <div id="consultarDeportesResult"></div>
+    <!-- Consultar Deportes -->
+    <div class="w-full max-w-md p-6 bg-white rounded-md shadow-md mb-6">
+        <h2 class="text-xl font-semibold mb-4">Consultar Deportes</h2>
+        <button
+            class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+            onclick="consultarDeportes()">Consultar Deportes</button>
+        <div id="consultarDeportesResult" class="mt-4"></div>
+    </div>
 
-    <h2>Insertar Deporte</h2>
-    <label for="nombreDeporte">Nombre del Deporte:</label>
-    <input type="text" id="nombreDeporte" required>
-    <button onclick="insertarDeporte()">Insertar Deporte</button>
-    <div id="insertarDeporteResult"></div>
+    <!-- Insertar Deporte -->
+    <div class="w-full max-w-md p-6 bg-white rounded-md shadow-md mb-6">
+        <h2 class="text-xl font-semibold mb-4">Insertar Deporte</h2>
+        <label for="nombreDeporte" class="block text-sm font-medium text-gray-600">Nombre del Deporte:</label>
+        <input type="text" id="nombreDeporte"
+            class="mt-1 p-2 block w-full rounded-md border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
+            required>
+        <button
+            class="mt-4 bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-green-300"
+            onclick="insertarDeporte()">Insertar Deporte</button>
+        <div id="insertarDeporteResult" class="mt-4"></div>
+    </div>
 
-    <h2>Consultar Deporte por ID</h2>
-    <label for="idConsulta">ID del Deporte:</label>
-    <input type="text" id="idConsulta" required>
-    <button onclick="consultarDeportePorId()">Consultar Deporte por ID</button>
-    <div id="consultarDeportePorIdResult"></div>
+    <!-- Consultar Deporte por ID -->
+    <div class="w-full max-w-md p-6 bg-white rounded-md shadow-md">
+        <h2 class="text-xl font-semibold mb-4">Consultar Deporte por ID</h2>
+        <label for="idConsulta" class="block text-sm font-medium text-gray-600">ID del Deporte:</label>
+        <input type="text" id="idConsulta"
+            class="mt-1 p-2 block w-full rounded-md border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
+            required>
+        <button
+            class="mt-4 bg-purple-500 text-white px-4 py-2 rounded-md hover:bg-purple-600 focus:outline-none focus:ring focus:border-purple-300"
+            onclick="consultarDeportePorId()">Consultar Deporte por ID</button>
+        <div id="consultarDeportePorIdResult" class="mt-4"></div>
+    </div>
+
+    <!-- Eliminar Deporte -->
+    <div class="w-full max-w-md p-6 bg-white rounded-md shadow-md mb-6">
+        <h2 class="text-xl font-semibold mb-4">Eliminar Deporte</h2>
+        <label for="idEliminar" class="block text-sm font-medium text-gray-600">ID del Deporte a Eliminar:</label>
+        <input type="text" id="idEliminar"
+            class="mt-1 p-2 block w-full rounded-md border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
+            required>
+        <button
+            class="mt-4 bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 focus:outline-none focus:ring focus:border-red-300"
+            onclick="eliminarDeporte()">Eliminar Deporte</button>
+        <div id="eliminarDeporteResult" class="mt-4"></div>
+    </div>
+
+    <!-- Modificar Deporte -->
+    <div class="w-full max-w-md p-6 bg-white rounded-md shadow-md mb-6">
+        <h2 class="text-xl font-semibold mb-4">Modificar Deporte</h2>
+        <label for="idModificar" class="block text-sm font-medium text-gray-600">ID del Deporte a Modificar:</label>
+        <input type="text" id="idModificar"
+            class="mt-1 p-2 block w-full rounded-md border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
+            required>
+        <label for="nuevoNombre" class="block text-sm font-medium text-gray-600">Nuevo Nombre del Deporte:</label>
+        <input type="text" id="nuevoNombre"
+            class="mt-1 p-2 block w-full rounded-md border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
+            required>
+        <button
+            class="mt-4 bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600 focus:outline-none focus:ring focus:border-yellow-300"
+            onclick="modificarDeporte()">Modificar Deporte</button>
+        <div id="modificarDeporteResult" class="mt-4"></div>
+    </div>
+
 
 </body>
 
