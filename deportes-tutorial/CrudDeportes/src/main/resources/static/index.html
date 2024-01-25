@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/server.js"></script>
+    <title>Interactuar con API Spring</title>
+</head>
+
+<body>
+
+    <h1>Interactuar con API Spring</h1>
+
+    <h2>Consultar Deportes</h2>
+    <button onclick="consultarDeportes()">Consultar Deportes</button>
+    <div id="consultarDeportesResult"></div>
+
+    <h2>Insertar Deporte</h2>
+    <label for="nombreDeporte">Nombre del Deporte:</label>
+    <input type="text" id="nombreDeporte" required>
+    <button onclick="insertarDeporte()">Insertar Deporte</button>
+    <div id="insertarDeporteResult"></div>
+
+    <h2>Consultar Deporte por ID</h2>
+    <label for="idConsulta">ID del Deporte:</label>
+    <input type="text" id="idConsulta" required>
+    <button onclick="consultarDeportePorId()">Consultar Deporte por ID</button>
+    <div id="consultarDeportePorIdResult"></div>
+
+</body>
+
+</html>
