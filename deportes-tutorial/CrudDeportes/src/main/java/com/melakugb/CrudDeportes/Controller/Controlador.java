@@ -46,16 +46,6 @@ public class Controlador {
         }
     }
 
-    // Ejemplo de método para editar un deporte
-    /*
-     * @PutMapping("/{id}")
-     * 
-     * @RequestMapping(value = "EditarDeporte", method = RequestMethod.PUT)
-     * public ResponseEntity<?> EditarDeporte(@RequestBody Deporte d) {
-     * Deporte deporteEditado = this.impl.editarDeporte(d);
-     * return ResponseEntity.ok(deporteEditado);
-     * }
-     */
     // En el controlador
     @PutMapping("ModificarDeporte/{id}")
     public ResponseEntity<Deporte> modificarDeporte(@PathVariable int id, @RequestBody Map<String, String> body) {
