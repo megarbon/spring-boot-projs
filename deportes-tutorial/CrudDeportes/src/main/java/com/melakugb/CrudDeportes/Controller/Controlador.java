@@ -11,24 +11,24 @@ import java.util.List;
 
 //especificamos que sera un controlador de una api rest
 @RestController
-//esto para poder hacer los mapeos de rutas
+// esto para poder hacer los mapeos de rutas
 @RequestMapping("CRUDRepo")
 public class Controlador {
 
     @Autowired
     private DSIMPL impl;
 
-    //Metodos de crud que actuan sobre la api
+    // Metodos de crud que actuan sobre la api
     @GetMapping
     @RequestMapping(value = "ConsultarDeportes", method = RequestMethod.GET)
-    public ResponseEntity<?> ConsultarPersonas(){
+    public ResponseEntity<?> ConsultarPersonas() {
         List<Deporte> listaDeportes = this.impl.ListarDeportes();
         return ResponseEntity.ok(listaDeportes);
     }
 
     @PostMapping
     @RequestMapping(value = "InsertarDeporte", method = RequestMethod.POST)
-    public ResponseEntity<?> InsertarDeporte(@RequestBody Deporte d){
+    public ResponseEntity<?> InsertarDeporte(@RequestBody Deporte d) {
         Deporte deporteInsertado = this.impl.insertarDeporte(d);
         return ResponseEntity.status(HttpStatus.CREATED).body(deporteInsertado);
     }
@@ -62,4 +62,3 @@ public class Controlador {
     }
 
 }
-
