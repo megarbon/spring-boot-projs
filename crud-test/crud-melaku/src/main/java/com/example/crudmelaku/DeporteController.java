@@ -36,14 +36,14 @@ public class DeporteController {
     }
 
     @GetMapping("/editar/{id}")
-    public String editarDeporte(@PathVariable Long id, Model model) {
-        Deporte deporte = deporteRepository.findById(id).orElse(null);
+    public String editarDeporte(@PathVariable int id, Model model) {
+        Deporte deporte = deporteRepository.findById(id);
         model.addAttribute("deporte", deporte);
         return "formularioDeporte";
     }
 
     @GetMapping("/eliminar/{id}")
-    public String eliminarDeporte(@PathVariable Long id) {
+    public String eliminarDeporte(@PathVariable int id) {
         deporteRepository.deleteById(id);
         return "redirect:/deportes";
     }

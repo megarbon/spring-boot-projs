@@ -1,8 +1,6 @@
 package com.melakugb.CrudDeportes.Service;
 
 import com.melakugb.CrudDeportes.Entity.Deporte;
-import com.melakugb.CrudDeportes.Repository.DeporteRepo;
-
 import java.util.List;
 
 
@@ -14,8 +12,7 @@ public interface DeporteService {
         public List<Deporte> ListarDeportes();
         public Deporte insertarDeporte(Deporte d);
         public Deporte buscarDeporteById(int id);
-        public Deporte editarDeporte(Deporte d);
-
+        public Deporte editarDeporte(int id, String nombre);
         public void eliminarDeporteById(int id);
 }
 

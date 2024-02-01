@@ -29,6 +29,16 @@
       "projectName": "rest-service-initial",
       "args": "",
       "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-CrudDeportesApplication<CrudDeportes>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.melakugb.CrudDeportes.CrudDeportesApplication",
+      "projectName": "CrudDeportes",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }
